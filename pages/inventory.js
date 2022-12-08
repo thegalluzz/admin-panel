@@ -30,6 +30,9 @@ export default function Inventory() {
         }
         const newInventory = [...inventoryRow, newInventoryRow];
         setInventoryRow(newInventory);
+        setItem("")
+        setNumber("")
+        setDate("")
     }
 
     function handleEditFormSubmit(event) {
@@ -92,27 +95,27 @@ export default function Inventory() {
                 <h1>Add an item</h1>
                 <form>
                     <input
-                        id='1'
                         type="text"
                         name="item"
                         required="required"
                         placeholder="Enter the item..."
+                        value={item}
                         onChange={e => setItem(e.target.value)}
                     />
                     <input
-                        id='2'
                         type="text"
                         name="number"
                         required="required"
                         placeholder="Enter the number of items..."
+                        value={number}
                         onChange={e => setNumber(e.target.value)}
                     />
                     <input
-                        id='3'
                         type="text"
                         name="date"
                         required="required"
                         placeholder="Enter the date..."
+                        value={date}
                         onChange={e => setDate(e.target.value)}
                     />
                     <button type="submit" onClick={handleFormSubmit}>Add</button>
