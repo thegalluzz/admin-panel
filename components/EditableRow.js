@@ -1,6 +1,3 @@
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-
 export default function EditableRow({ editInventoryData, handleEditInventoryData, handleCancelClick }) {
 
     return (
@@ -15,8 +12,9 @@ export default function EditableRow({ editInventoryData, handleEditInventoryData
                     onChange={handleEditInventoryData}
                 />
             </td>
-            <td>
+            <td id="113">
                 <input
+                    
                     type="text"
                     name="number"
                     required="required"

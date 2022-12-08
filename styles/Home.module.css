@@ -14,10 +14,15 @@
 }
 
 .nav a {
-  padding: 1.5rem;
+  padding: 2rem;
   font-weight: bold;
   display: inline-block;
   margin-right: 5px;
+}
+
+.nav a:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .table {
@@ -25,6 +30,14 @@
   padding: 8px;
   width: 80%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AddFormDiv{
+  padding-bottom: 10px;
+  width: 80%;
+  text-align: left;
   margin-left: auto;
   margin-right: auto;
 }

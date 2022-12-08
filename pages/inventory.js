@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar'
 import data from '../mock-data.json'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { nanoid } from 'nanoid'
 import ReadOnlyRow from '../components/ReadOnlyRow'
 import EditableRow from '../components/EditableRow'
@@ -88,31 +88,36 @@ export default function Inventory() {
     return (
         <>
             <Navbar />
-            <h1>Add an item</h1>
-            <form>
-                <input
-                    type="text"
-                    name="item"
-                    required="required"
-                    placeholder="Enter the item..."
-                    onChange={e => setItem(e.target.value)}
-                />
-                <input
-                    type="text"
-                    name="number"
-                    required="required"
-                    placeholder="Enter the number of items..."
-                    onChange={e => setNumber(e.target.value)}
-                />
-                <input
-                    type="text"
-                    name="date"
-                    required="required"
-                    placeholder="Enter the date..."
-                    onChange={e => setDate(e.target.value)}
-                />
-                <button type="submit" onClick={handleFormSubmit}>Add</button>
-            </form>
+            <div className={styles.AddFormDiv}>
+                <h1>Add an item</h1>
+                <form>
+                    <input
+                        id='1'
+                        type="text"
+                        name="item"
+                        required="required"
+                        placeholder="Enter the item..."
+                        onChange={e => setItem(e.target.value)}
+                    />
+                    <input
+                        id='2'
+                        type="text"
+                        name="number"
+                        required="required"
+                        placeholder="Enter the number of items..."
+                        onChange={e => setNumber(e.target.value)}
+                    />
+                    <input
+                        id='3'
+                        type="text"
+                        name="date"
+                        required="required"
+                        placeholder="Enter the date..."
+                        onChange={e => setDate(e.target.value)}
+                    />
+                    <button type="submit" onClick={handleFormSubmit}>Add</button>
+                </form>
+            </div>
             <form onSubmit={handleEditFormSubmit}>
                 <table className={styles.table}>
                     <thead>
@@ -125,7 +130,7 @@ export default function Inventory() {
                     </thead>
                     <tbody>
                         {inventoryRow.map(inventoryRow => (
-                            <>
+                            <Fragment key={inventoryRow.id}>
                                 {editRowId === inventoryRow.id ?
                                     <EditableRow
                                         key={editInventoryData.id}
@@ -141,7 +146,7 @@ export default function Inventory() {
                                         handleDeleteClick={handleDeleteClick}
                                     />
                                 }
-                            </>
+                            </Fragment>
                         ))}
                     </tbody>
                 </table>
