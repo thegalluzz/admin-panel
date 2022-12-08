@@ -11,7 +11,7 @@ export default function ReadOnlyRow({ inventoryRow, handleEditClick, handleDelet
                 <button onClick={event => handleEditClick(event, inventoryRow)}>
                     Edit
                 </button>
-                <button onClick={handleDeleteClick}>Delete</button>
+                <button type='button' onClick={() => handleDeleteClick(inventoryRow.id)}>Delete</button>
             </td>
         </tr>
     )

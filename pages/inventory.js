@@ -78,9 +78,9 @@ export default function Inventory() {
     function handleCancelClick() {
         setEditRowId(null)
     }
-    function handleDeleteClick() {
+    function handleDeleteClick(inventoryRowId) {
         const newInventoryData = [...inventoryRow];
-        const index = inventoryRow.findIndex((inventoryRow) => inventoryRow.id === editRowId);
+        const index = inventoryRow.findIndex((inventoryRow) => inventoryRow.id === inventoryRowId);
         newInventoryData.splice(index, 1);
         setInventoryRow(newInventoryData)
     }
