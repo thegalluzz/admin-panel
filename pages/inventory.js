@@ -22,17 +22,21 @@ export default function Inventory() {
 
     function handleFormSubmit(event) {
         event.preventDefault()
-        const newInventoryRow = {
-            "id": nanoid(),
-            "item": item,
-            "number": number,
-            "date": date
+        if (item !== "" && number !== "" && date !== "") {
+            const newInventoryRow = {
+                "id": nanoid(),
+                "item": item,
+                "number": number,
+                "date": date
+            }
+            const newInventory = [...inventoryRow, newInventoryRow];
+            setInventoryRow(newInventory);
+            setItem("")
+            setNumber("")
+            setDate("")
+        } else {
+            alert("Cannot Have Empty Fields")
         }
-        const newInventory = [...inventoryRow, newInventoryRow];
-        setInventoryRow(newInventory);
-        setItem("")
-        setNumber("")
-        setDate("")
     }
 
     function handleEditFormSubmit(event) {
